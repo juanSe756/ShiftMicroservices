@@ -1,4 +1,4 @@
-package co.edu.uptc.notificationservice.application.config;
+package co.edu.uptc.shiftservice.application.config;
 
 import io.micrometer.observation.ObservationRegistry;
 import org.springframework.cloud.client.loadbalancer.LoadBalanced;
