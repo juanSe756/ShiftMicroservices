@@ -15,6 +15,7 @@ public class ShiftController {
     public String createShift() {
         return userShiftServices.createShift();
     }
+
     @GetMapping("/update")
     public String updateShift() {
         return "Shift updated";

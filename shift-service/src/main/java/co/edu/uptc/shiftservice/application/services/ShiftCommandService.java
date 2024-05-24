@@ -3,11 +3,12 @@ package co.edu.uptc.shiftservice.application.services;
 import co.edu.uptc.shiftservice.domain.Shift;
 import co.edu.uptc.shiftservice.infraestructure.command.ShiftCommandRepository;
 import org.springframework.beans.factory.annotation.Autowired;
+import org.springframework.stereotype.Component;
 import org.springframework.stereotype.Service;
 
-@Service
+@Component
 public class ShiftCommandService {
-    @Autowired
+//    @Autowired
     private ShiftCommandRepository shiftCommandRepository;
 
     public Shift createShift(Shift shift) {
