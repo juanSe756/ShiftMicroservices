@@ -1,10 +1,8 @@
 package co.edu.uptc.shiftservice.application.services;
 
 import co.edu.uptc.shiftservice.domain.Shift;
-import co.edu.uptc.shiftservice.infraestructure.command.ShiftCommandRepository;
-import org.springframework.beans.factory.annotation.Autowired;
+import co.edu.uptc.shiftservice.infrastructure.command.ShiftCommandRepository;
 import org.springframework.stereotype.Component;
-import org.springframework.stereotype.Service;
 
 @Component
 public class ShiftCommandService {

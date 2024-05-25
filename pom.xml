@@ -23,6 +23,7 @@
         <module>shift-service</module>
         <module>notification-service</module>
         <module>discovery-server</module>
+        <module>redirect-service</module>
     </modules>
     <dependencies>
 

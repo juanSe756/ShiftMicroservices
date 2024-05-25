@@ -1,7 +1,7 @@
 package co.edu.uptc.shiftservice.application.services;
 
 import co.edu.uptc.shiftservice.domain.Shift;
-import co.edu.uptc.shiftservice.infraestructure.query.ShiftQueryRepository;
+import co.edu.uptc.shiftservice.infrastructure.query.ShiftQueryRepository;
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.stereotype.Service;
 import java.util.List;

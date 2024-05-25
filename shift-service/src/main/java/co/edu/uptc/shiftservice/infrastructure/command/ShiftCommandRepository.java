@@ -1,4 +1,4 @@
-package co.edu.uptc.shiftservice.infraestructure.command;
+package co.edu.uptc.shiftservice.infrastructure.command;
 
 import co.edu.uptc.shiftservice.domain.Shift;
 import org.springframework.data.mongodb.repository.MongoRepository;
