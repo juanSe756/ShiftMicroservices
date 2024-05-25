@@ -1,6 +1,5 @@
 package co.edu.uptc.redirectservice.application.config;
 
-import co.edu.uptc.redirectservice.application.RoleBasedRedirectHandler;
 import org.springframework.context.annotation.Bean;
 import org.springframework.context.annotation.Configuration;
 import org.springframework.core.convert.converter.Converter;
@@ -26,12 +25,15 @@ import java.util.stream.Collectors;
 public class SecurityConfig {
 
     @Bean
-    public SecurityFilterChain redirectByRole(HttpSecurity http) throws Exception {
+    public SecurityFilterChain securityFilterChain(HttpSecurity http) throws Exception {
         http
                 .csrf(AbstractHttpConfigurer::disable)
-                .authorizeHttpRequests(auth -> auth.anyRequest().authenticated())
-                .oauth2ResourceServer(configure -> configure.jwt(jwt -> jwt.jwtAuthenticationConverter(jwtAuthConverter())))
-                .formLogin(formLogin -> formLogin.successHandler(new RoleBasedRedirectHandler()));
+                .authorizeHttpRequests(auth ->
+                        auth.requestMatchers(request ->
+                                        request.getRequestURI().contains("/actuator/shift")).permitAll()
+                                .anyRequest().authenticated())
+                .oauth2ResourceServer(configure -> configure.jwt(jwt -> jwt.jwtAuthenticationConverter(jwtAuthConverter())));
+
         return http.build();
     }
 
