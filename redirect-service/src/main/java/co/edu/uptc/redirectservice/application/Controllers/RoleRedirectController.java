@@ -14,8 +14,8 @@ public class RoleRedirectController {
     private final RedirectStrategy redirectStrategy = new DefaultRedirectStrategy();
     private String getRoleFromAuthentication(Authentication authentication) {
         return authentication.getAuthorities().stream()
-                .filter(authority -> authority.getAuthority().startsWith("ROLE_"))
                 .map(GrantedAuthority::getAuthority)
+                .filter(authority -> authority.startsWith("ROLE_"))
                 .findFirst()
                 .orElseThrow(() -> new IllegalStateException("No role found in authentication"));
     }
