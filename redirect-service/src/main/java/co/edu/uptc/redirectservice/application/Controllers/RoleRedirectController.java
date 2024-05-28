@@ -1,12 +1,14 @@
 package co.edu.uptc.redirectservice.application.Controllers;
 
+import jakarta.servlet.http.HttpServletRequest;
+import jakarta.servlet.http.HttpServletResponse;
 import org.springframework.security.core.Authentication;
+import org.springframework.security.core.GrantedAuthority;
 import org.springframework.security.web.DefaultRedirectStrategy;
 import org.springframework.security.web.RedirectStrategy;
 import org.springframework.web.bind.annotation.GetMapping;
 import org.springframework.web.bind.annotation.RequestMapping;
 import org.springframework.web.bind.annotation.RestController;
-import org.springframework.security.core.GrantedAuthority;
 
 import java.io.IOException;
 
@@ -21,15 +23,17 @@ public class RoleRedirectController {
                 .findFirst()
                 .orElseThrow(() -> new IllegalStateException("No role found in authentication"));
     }
+
+
     @GetMapping("/redirect")
-    public void redirect(Authentication authentication) throws IOException {
+    public void redirect(Authentication authentication, HttpServletRequest request, HttpServletResponse response) throws IOException {
         String role = getRoleFromAuthentication(authentication);
         if (role.equals("ROLE_ADMIN")) {
-            redirectStrategy.sendRedirect(null, null, "http://localhost:4200/admin");
+            redirectStrategy.sendRedirect(request, response, "http://localhost:4200/admin");
         } else if (role.equals("ROLE_USER")) {
-            redirectStrategy.sendRedirect(null, null, "http://localhost:4200/user");
+            redirectStrategy.sendRedirect(request, response, "http://localhost:4200/user");
         } else {
-            redirectStrategy.sendRedirect(null, null, "http://localhost:4200/error");
+            redirectStrategy.sendRedirect(request, response, "http://localhost:4200/error");
         }
     }
 
