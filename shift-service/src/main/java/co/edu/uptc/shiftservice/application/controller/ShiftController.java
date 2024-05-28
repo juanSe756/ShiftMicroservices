@@ -9,6 +9,7 @@ import org.springframework.http.ResponseEntity;
 import org.springframework.security.access.prepost.PreAuthorize;
 import org.springframework.web.bind.annotation.*;
 
+import java.util.List;
 import java.util.Optional;
 
 @RestController
@@ -52,4 +53,10 @@ public class ShiftController {
     public void deleteShift() {
         //userShiftServices.deleteShift();
     }
+
+    @GetMapping("/all")
+    public List<Shift> getAllShifts() {
+        return userShiftServices.getAllShifts();
+    }
+
 }

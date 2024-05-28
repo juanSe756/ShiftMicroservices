@@ -4,12 +4,14 @@ import org.springframework.security.core.Authentication;
 import org.springframework.security.web.DefaultRedirectStrategy;
 import org.springframework.security.web.RedirectStrategy;
 import org.springframework.web.bind.annotation.GetMapping;
+import org.springframework.web.bind.annotation.RequestMapping;
 import org.springframework.web.bind.annotation.RestController;
 import org.springframework.security.core.GrantedAuthority;
 
 import java.io.IOException;
 
 @RestController
+@RequestMapping("")
 public class RoleRedirectController {
     private final RedirectStrategy redirectStrategy = new DefaultRedirectStrategy();
     private String getRoleFromAuthentication(Authentication authentication) {

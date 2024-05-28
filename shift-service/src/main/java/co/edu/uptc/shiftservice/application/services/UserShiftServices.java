@@ -27,6 +27,7 @@ public class UserShiftServices {
         return shiftRepository.save(shift);
     }
 
+
     public Optional<Shift> updateShift(String id, Shift shiftDetails) {
         return shiftRepository.findById(id).map(shift -> {
             shift.setCodigo(shiftDetails.getCodigo());
