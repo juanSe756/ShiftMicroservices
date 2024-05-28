@@ -1,8 +1,10 @@
-package co.edu.uptc.shiftservice.domain;
+package co.edu.uptc.shiftservice.domain.model;
+import jakarta.persistence.Entity;
 import org.springframework.data.mongodb.core.mapping.Document;
 import org.springframework.data.annotation.Id;
 
-@Document(collection = "turnos")
+@Document(collection = "Shifts")
+
 public class Shift {
     @Id
     private String id;
@@ -11,14 +13,6 @@ public class Shift {
     private String dependencia;
     private String horaAsignacion;
     private String estado;
-
-    public String getId() {
-        return id;
-    }
-
-    public void setId(String id) {
-        this.id = id;
-    }
 
     public String getCodigo() {
         return codigo;
@@ -58,5 +52,13 @@ public class Shift {
 
     public void setEstado(String estado) {
         this.estado = estado;
+    }
+
+    public String getId() {
+        return id;
+    }
+
+    public void setId(String id) {
+        this.id = id;
     }
 }
